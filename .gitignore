@@ -315,6 +315,7 @@ DebugConfig/
 
 ## Other
 # *._ia
+RTE/
 
 #
 *.bak
