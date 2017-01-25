@@ -676,6 +676,11 @@
               <FileType>8</FileType>
               <FilePath>..\..\User\util.cpp</FilePath>
             </File>
+            <File>
+              <FileName>bsp_led.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\..\User\BSP_CPP\led\bsp_led.cpp</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
