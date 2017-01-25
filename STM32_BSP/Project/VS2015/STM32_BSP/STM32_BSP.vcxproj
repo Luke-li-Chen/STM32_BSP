@@ -69,7 +69,7 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>$(ProjectDir)..\..\..\User\BSP_C;$(ProjectDir)..\..\..\User;$(ProjectDir)..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc;$(ProjectDir)..\..\..\Libraries\CMSIS\Include;$(ProjectDir)..\..\..\Libraries\CMSIS\Device\ST\STM32F4xx\Include;$(IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir)..\..\..\User\BSP_CPP;$(ProjectDir)..\..\..\User\BSP_C;$(ProjectDir)..\..\..\User;$(ProjectDir)..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc;$(ProjectDir)..\..\..\Libraries\CMSIS\Include;$(ProjectDir)..\..\..\Libraries\CMSIS\Device\ST\STM32F4xx\Include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -150,6 +150,7 @@
     <ClInclude Include="..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_tim.h" />
     <ClInclude Include="..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_usart.h" />
     <ClInclude Include="..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_wwdg.h" />
+    <ClInclude Include="..\..\..\User\BSP_CPP\led\bsp_led.hpp" />
     <ClInclude Include="..\..\..\User\BSP_C\led\bsp_led.h" />
     <ClInclude Include="..\..\..\User\BSP_C\usart\bsp_debug_usart.h" />
     <ClInclude Include="..\..\..\User\stm32f4xx_conf.h" />
@@ -198,6 +199,7 @@
     <ClCompile Include="..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_tim.c" />
     <ClCompile Include="..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_usart.c" />
     <ClCompile Include="..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_wwdg.c" />
+    <ClCompile Include="..\..\..\User\BSP_CPP\led\bsp_led.cpp" />
     <ClCompile Include="..\..\..\User\BSP_C\led\bsp_led.c" />
     <ClCompile Include="..\..\..\User\BSP_C\usart\bsp_debug_usart.c" />
     <ClCompile Include="..\..\..\User\main.cpp" />

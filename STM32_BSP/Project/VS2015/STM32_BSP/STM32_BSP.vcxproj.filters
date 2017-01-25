@@ -37,6 +37,12 @@
     <Filter Include="头文件\USER">
       <UniqueIdentifier>{c6b9f0f8-ac83-44e5-af13-1ad5d469def3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="源文件\BSP_CPP">
+      <UniqueIdentifier>{c7ccb058-78d3-4980-966e-d2d731d1ab80}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\BSP_CPP">
+      <UniqueIdentifier>{6f21c24e-008e-421b-83ee-c0697b110e96}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\Libraries\CMSIS\Device\ST\STM32F4xx\Include\stm32f4xx.h">
@@ -164,6 +170,9 @@
     </ClInclude>
     <ClInclude Include="..\..\..\User\BSP_C\led\bsp_led.h">
       <Filter>头文件\BSP_C</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\User\BSP_CPP\led\bsp_led.hpp">
+      <Filter>头文件\BSP_CPP</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -301,6 +310,9 @@
     </ClCompile>
     <ClCompile Include="..\..\..\User\BSP_C\led\bsp_led.c">
       <Filter>源文件\BSP_C</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\User\BSP_CPP\led\bsp_led.cpp">
+      <Filter>源文件\BSP_CPP</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
