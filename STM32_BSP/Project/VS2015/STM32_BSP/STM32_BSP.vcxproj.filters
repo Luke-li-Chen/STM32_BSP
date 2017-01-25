@@ -1,0 +1,306 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="源文件\CMSIS">
+      <UniqueIdentifier>{2b218d35-4b8f-4efd-95b7-a8dfc044783d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\USER">
+      <UniqueIdentifier>{2131af39-55ee-4d8b-a7d9-ba8ed017b740}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\STM32F4xx_StdPeriph_Driver">
+      <UniqueIdentifier>{175d549c-b619-496f-abf2-5b101134f9ab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\CMSIS">
+      <UniqueIdentifier>{d349c255-0ad7-4b79-a630-2f7e59b9e7e0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\STM32F4xx_StdPeriph_Driver">
+      <UniqueIdentifier>{f35be12e-348e-4b3f-b50a-7addb41cbfe3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\BSP_C">
+      <UniqueIdentifier>{ab65c846-883b-4e9e-ab1c-c65e9d87e40d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\BSP_C">
+      <UniqueIdentifier>{3a986c80-2607-4955-8c56-82094449f0a7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\USER">
+      <UniqueIdentifier>{c6b9f0f8-ac83-44e5-af13-1ad5d469def3}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\Libraries\CMSIS\Device\ST\STM32F4xx\Include\stm32f4xx.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Libraries\CMSIS\Device\ST\STM32F4xx\Include\system_stm32f4xx.h">
+      <Filter>头文件\CMSIS</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_dma.h">
+      <Filter>头文件\STM32F4xx_StdPeriph_Driver</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_dma2d.h">
+      <Filter>头文件\STM32F4xx_StdPeriph_Driver</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_exti.h">
+      <Filter>头文件\STM32F4xx_StdPeriph_Driver</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_flash.h">
+      <Filter>头文件\STM32F4xx_StdPeriph_Driver</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_flash_ramfunc.h">
+      <Filter>头文件\STM32F4xx_StdPeriph_Driver</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_fmc.h">
+      <Filter>头文件\STM32F4xx_StdPeriph_Driver</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_fmpi2c.h">
+      <Filter>头文件\STM32F4xx_StdPeriph_Driver</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_fsmc.h">
+      <Filter>头文件\STM32F4xx_StdPeriph_Driver</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_gpio.h">
+      <Filter>头文件\STM32F4xx_StdPeriph_Driver</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_hash.h">
+      <Filter>头文件\STM32F4xx_StdPeriph_Driver</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_i2c.h">
+      <Filter>头文件\STM32F4xx_StdPeriph_Driver</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_iwdg.h">
+      <Filter>头文件\STM32F4xx_StdPeriph_Driver</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_ltdc.h">
+      <Filter>头文件\STM32F4xx_StdPeriph_Driver</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_pwr.h">
+      <Filter>头文件\STM32F4xx_StdPeriph_Driver</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_qspi.h">
+      <Filter>头文件\STM32F4xx_StdPeriph_Driver</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_rcc.h">
+      <Filter>头文件\STM32F4xx_StdPeriph_Driver</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_rng.h">
+      <Filter>头文件\STM32F4xx_StdPeriph_Driver</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_rtc.h">
+      <Filter>头文件\STM32F4xx_StdPeriph_Driver</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_sai.h">
+      <Filter>头文件\STM32F4xx_StdPeriph_Driver</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_sdio.h">
+      <Filter>头文件\STM32F4xx_StdPeriph_Driver</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_spdifrx.h">
+      <Filter>头文件\STM32F4xx_StdPeriph_Driver</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_spi.h">
+      <Filter>头文件\STM32F4xx_StdPeriph_Driver</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_syscfg.h">
+      <Filter>头文件\STM32F4xx_StdPeriph_Driver</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_tim.h">
+      <Filter>头文件\STM32F4xx_StdPeriph_Driver</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_usart.h">
+      <Filter>头文件\STM32F4xx_StdPeriph_Driver</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_wwdg.h">
+      <Filter>头文件\STM32F4xx_StdPeriph_Driver</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\misc.h">
+      <Filter>头文件\STM32F4xx_StdPeriph_Driver</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_adc.h">
+      <Filter>头文件\STM32F4xx_StdPeriph_Driver</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_can.h">
+      <Filter>头文件\STM32F4xx_StdPeriph_Driver</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_cec.h">
+      <Filter>头文件\STM32F4xx_StdPeriph_Driver</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_crc.h">
+      <Filter>头文件\STM32F4xx_StdPeriph_Driver</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_cryp.h">
+      <Filter>头文件\STM32F4xx_StdPeriph_Driver</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_dac.h">
+      <Filter>头文件\STM32F4xx_StdPeriph_Driver</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_dbgmcu.h">
+      <Filter>头文件\STM32F4xx_StdPeriph_Driver</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_dcmi.h">
+      <Filter>头文件\STM32F4xx_StdPeriph_Driver</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\User\stm32f4xx_it.h">
+      <Filter>头文件\USER</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\User\stm32f4xx_conf.h">
+      <Filter>头文件\USER</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\User\util.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\User\BSP_C\usart\bsp_debug_usart.h">
+      <Filter>头文件\BSP_C</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\User\BSP_C\led\bsp_led.h">
+      <Filter>头文件\BSP_C</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\Libraries\CMSIS\Device\ST\STM32F4xx\Source\Templates\system_stm32f4xx.c">
+      <Filter>源文件\CMSIS</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_des.c">
+      <Filter>源文件\STM32F4xx_StdPeriph_Driver</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_tdes.c">
+      <Filter>源文件\STM32F4xx_StdPeriph_Driver</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dac.c">
+      <Filter>源文件\STM32F4xx_StdPeriph_Driver</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dbgmcu.c">
+      <Filter>源文件\STM32F4xx_StdPeriph_Driver</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dcmi.c">
+      <Filter>源文件\STM32F4xx_StdPeriph_Driver</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dma.c">
+      <Filter>源文件\STM32F4xx_StdPeriph_Driver</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dma2d.c">
+      <Filter>源文件\STM32F4xx_StdPeriph_Driver</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_exti.c">
+      <Filter>源文件\STM32F4xx_StdPeriph_Driver</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_flash.c">
+      <Filter>源文件\STM32F4xx_StdPeriph_Driver</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_flash_ramfunc.c">
+      <Filter>源文件\STM32F4xx_StdPeriph_Driver</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fmc.c">
+      <Filter>源文件\STM32F4xx_StdPeriph_Driver</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fmpi2c.c">
+      <Filter>源文件\STM32F4xx_StdPeriph_Driver</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fsmc.c">
+      <Filter>源文件\STM32F4xx_StdPeriph_Driver</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_gpio.c">
+      <Filter>源文件\STM32F4xx_StdPeriph_Driver</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash.c">
+      <Filter>源文件\STM32F4xx_StdPeriph_Driver</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash_md5.c">
+      <Filter>源文件\STM32F4xx_StdPeriph_Driver</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash_sha1.c">
+      <Filter>源文件\STM32F4xx_StdPeriph_Driver</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_i2c.c">
+      <Filter>源文件\STM32F4xx_StdPeriph_Driver</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_iwdg.c">
+      <Filter>源文件\STM32F4xx_StdPeriph_Driver</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_ltdc.c">
+      <Filter>源文件\STM32F4xx_StdPeriph_Driver</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_pwr.c">
+      <Filter>源文件\STM32F4xx_StdPeriph_Driver</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_qspi.c">
+      <Filter>源文件\STM32F4xx_StdPeriph_Driver</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rcc.c">
+      <Filter>源文件\STM32F4xx_StdPeriph_Driver</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rng.c">
+      <Filter>源文件\STM32F4xx_StdPeriph_Driver</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rtc.c">
+      <Filter>源文件\STM32F4xx_StdPeriph_Driver</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_sai.c">
+      <Filter>源文件\STM32F4xx_StdPeriph_Driver</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_sdio.c">
+      <Filter>源文件\STM32F4xx_StdPeriph_Driver</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_spdifrx.c">
+      <Filter>源文件\STM32F4xx_StdPeriph_Driver</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_spi.c">
+      <Filter>源文件\STM32F4xx_StdPeriph_Driver</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_syscfg.c">
+      <Filter>源文件\STM32F4xx_StdPeriph_Driver</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_tim.c">
+      <Filter>源文件\STM32F4xx_StdPeriph_Driver</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_usart.c">
+      <Filter>源文件\STM32F4xx_StdPeriph_Driver</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_wwdg.c">
+      <Filter>源文件\STM32F4xx_StdPeriph_Driver</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\misc.c">
+      <Filter>源文件\STM32F4xx_StdPeriph_Driver</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_adc.c">
+      <Filter>源文件\STM32F4xx_StdPeriph_Driver</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_can.c">
+      <Filter>源文件\STM32F4xx_StdPeriph_Driver</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cec.c">
+      <Filter>源文件\STM32F4xx_StdPeriph_Driver</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_crc.c">
+      <Filter>源文件\STM32F4xx_StdPeriph_Driver</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.c">
+      <Filter>源文件\STM32F4xx_StdPeriph_Driver</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_aes.c">
+      <Filter>源文件\STM32F4xx_StdPeriph_Driver</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\User\BSP_C\usart\bsp_debug_usart.c">
+      <Filter>源文件\BSP_C</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\User\stm32f4xx_it.cpp">
+      <Filter>源文件\USER</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\User\main.cpp">
+      <Filter>源文件\USER</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\User\BSP_C\led\bsp_led.c">
+      <Filter>源文件\BSP_C</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
