@@ -681,6 +681,11 @@
               <FileType>8</FileType>
               <FilePath>..\..\User\BSP_CPP\led\bsp_led.cpp</FilePath>
             </File>
+            <File>
+              <FileName>bsp_usart1.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\User\BSP_C\usart\bsp_usart1.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

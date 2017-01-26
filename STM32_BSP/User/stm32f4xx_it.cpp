@@ -151,7 +151,7 @@ void SysTick_Handler(void)
 
 extern byte g_UartTmp;
 extern bool g_bUartFlag;
-void DEBUG_USART_IRQHandler(void)
+void USART1_IRQHandler(void)
 {
     if (USART_GetITStatus(DEBUG_USART, USART_IT_RXNE) != RESET)
     {
