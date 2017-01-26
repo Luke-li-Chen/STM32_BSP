@@ -15,23 +15,6 @@
 
 #include "bsp_usart1.h"
 
-uint8_t recv_char=0;
-
-
-/// 配置USART1接收中断
-static void USART1_NVIC_Config(void)
-{
-    NVIC_InitTypeDef NVIC_InitStructure;
-    /* Configure the NVIC Preemption Priority Bits */
-    NVIC_PriorityGroupConfig(NVIC_PriorityGroup_0);
-
-    /* Enable the USARTy Interrupt */
-    NVIC_InitStructure.NVIC_IRQChannel = USART1_IRQn;
-    NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 1;
-    NVIC_InitStructure.NVIC_IRQChannelSubPriority = 1;
-    NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
-    NVIC_Init(&NVIC_InitStructure);
-}
 
 
  /**
@@ -39,48 +22,39 @@ static void USART1_NVIC_Config(void)
   * @param  无
   * @retval 无
   */
-void USART1_Config(void)
+void USART1_Config(int baud)
 {
-    GPIO_InitTypeDef GPIO_InitStructure;
-    USART_InitTypeDef USART_InitStructure;
+    GPIO_InitTypeDef gpioIni;
+    USART_InitTypeDef usart_Ini;
 
-    /* config USART1 clock */
-    RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOA | RCC_AHB1Periph_GPIOB, ENABLE);
-    RCC_APB2PeriphClockCmd(RCC_APB2Periph_USART1, ENABLE);
+    // 使能时钟
+    RCC_AHB1PeriphClockCmd(USART_1_RX_GPIO_CLK | USART_1_TX_GPIO_CLK, ENABLE);
+    RCC_APB2PeriphClockCmd(USART_1_CLK, ENABLE);
 
-    GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
-    GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;
-    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+    gpioIni.GPIO_OType  = GPIO_OType_PP;
+    gpioIni.GPIO_PuPd   = GPIO_PuPd_UP;
+    gpioIni.GPIO_Speed  = GPIO_Speed_50MHz;
+    gpioIni.GPIO_Mode   = GPIO_Mode_AF;
 
     /* Configure USART1 Tx (PA.09) as alternate function push-pull */
-    GPIO_InitStructure.GPIO_Pin = GPIO_Pin_6;
-    //GPIO_InitStructure.GPIO_Pin = GPIO_Pin_9;
-    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
-    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
-    //GPIO_Init(GPIOA, &GPIO_InitStructure);
-    GPIO_Init(GPIOB, &GPIO_InitStructure);
+    gpioIni.GPIO_Pin = USART_1_TX_PIN;
+    GPIO_Init(USART_1_TX_GPIO_PORT, &gpioIni);
 
     /* Configure USART1 Rx (PA.10) as input floating */
-    //GPIO_InitStructure.GPIO_Pin = GPIO_Pin_10;
-    GPIO_InitStructure.GPIO_Pin = GPIO_Pin_7;
-    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
-    //GPIO_Init(GPIOA, &GPIO_InitStructure);
-    GPIO_Init(GPIOB, &GPIO_InitStructure);
+    gpioIni.GPIO_Pin = USART_1_RX_PIN;
+    GPIO_Init(USART_1_RX_GPIO_PORT, &gpioIni);
 
-    //GPIO_PinAFConfig(GPIOA, GPIO_PinSource10, GPIO_AF_USART1);
-    //GPIO_PinAFConfig(GPIOA, GPIO_PinSource9, GPIO_AF_USART1);
-
-    GPIO_PinAFConfig(GPIOB, GPIO_PinSource6, GPIO_AF_USART1);
-    GPIO_PinAFConfig(GPIOB, GPIO_PinSource7, GPIO_AF_USART1);
+    GPIO_PinAFConfig(USART_1_RX_GPIO_PORT, USART_1_RX_SOURCE, USART_1_RX_AF);
+    GPIO_PinAFConfig(USART_1_TX_GPIO_PORT, USART_1_TX_SOURCE, USART_1_TX_AF);
 
     /* USART1 mode config */
-    USART_InitStructure.USART_BaudRate              = 115200;
-    USART_InitStructure.USART_WordLength            = USART_WordLength_8b;
-    USART_InitStructure.USART_StopBits              = USART_StopBits_1;
-    USART_InitStructure.USART_Parity                = USART_Parity_No ;
-    USART_InitStructure.USART_HardwareFlowControl   = USART_HardwareFlowControl_None;
-    USART_InitStructure.USART_Mode                  = USART_Mode_Rx | USART_Mode_Tx;
-    USART_Init(USART1, &USART_InitStructure);
+    usart_Ini.USART_BaudRate              = baud;
+    usart_Ini.USART_WordLength            = USART_WordLength_8b;
+    usart_Ini.USART_StopBits              = USART_StopBits_1;
+    usart_Ini.USART_Parity                = USART_Parity_No ;
+    usart_Ini.USART_HardwareFlowControl   = USART_HardwareFlowControl_None;
+    usart_Ini.USART_Mode                  = USART_Mode_Rx | USART_Mode_Tx;
+    USART_Init(USART1, &usart_Ini);
 #if 0
     USART_Cmd(USART1, ENABLE);
 #elif 1
@@ -95,16 +69,32 @@ void USART1_Config(void)
     注意: 不要在此处打开发送中断
     发送中断使能在SendUart()函数打开
     */
-    USART_Cmd(USART1, ENABLE);		/* 使能串口 */ 
+    USART_Cmd(USART1, ENABLE);      /* 使能串口 */
     /* CPU的小缺陷：串口配置好，如果直接Send，则第1个字节发送不出去
     如下语句解决第1个字节无法正确发送出去的问题 */
-    USART_ClearFlag(USART1, USART_FLAG_TC);		/* 清发送外城标志，Transmission Complete flag */
-    USART1_NVIC_Config();  
+    USART_ClearFlag(USART1, USART_FLAG_TC);     /* 清发送完成标志，Transmission Complete flag */
+    USART1_NVIC_Config();
 #endif
 }
 
 
+/// 配置USART1接收中断
+static void USART1_NVIC_Config(void)
+{
+    NVIC_InitTypeDef NVIC_InitStructure;
+    /* Configure the NVIC Preemption Priority Bits */
+    NVIC_PriorityGroupConfig(NVIC_PriorityGroup_1);
 
+    /* Enable the USARTy Interrupt */
+    NVIC_InitStructure.NVIC_IRQChannel = USART1_IRQn;
+    NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 1;
+    NVIC_InitStructure.NVIC_IRQChannelSubPriority = 1;
+    NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
+    NVIC_Init(&NVIC_InitStructure);
+}
+
+
+uint8_t recv_char = 0;
 
 ///**
 //  * @brief  UsartReceive 串口接收中断服务函数，用来控制音量

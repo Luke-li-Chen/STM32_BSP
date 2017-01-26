@@ -10,19 +10,56 @@ extern "C" {
 
 // Òý½Å¶¨Òå
 /*******************************************************/
-#define USART_1_CLK                         RCC_APB2Periph_USART1
 
-#define USART_1_RX_GPIO_PORT                GPIOA
-#define USART_1_RX_GPIO_CLK                 RCC_AHB1Periph_GPIOA
-#define USART_1_RX_PIN                      GPIO_Pin_10
+//#define USART_1_TX_A9
+#define USART_1_TX_B6
+
+#define USART_1_RX_A10
+//#define USART_1_RX_B7
+
+
+#define USART_1_CLK                         RCC_APB2Periph_USART1
+#define USART_1_TX_AF                       GPIO_AF_USART1
 #define USART_1_RX_AF                       GPIO_AF_USART1
-#define USART_1_RX_SOURCE                   GPIO_PinSource10
+
+#ifdef USART_1_TX_A9
 
 #define USART_1_TX_GPIO_PORT                GPIOA
 #define USART_1_TX_GPIO_CLK                 RCC_AHB1Periph_GPIOA
 #define USART_1_TX_PIN                      GPIO_Pin_9
-#define USART_1_TX_AF                       GPIO_AF_USART1
 #define USART_1_TX_SOURCE                   GPIO_PinSource9
+
+#elif defined USART_1_TX_B6
+
+#define USART_1_TX_GPIO_PORT                GPIOB
+#define USART_1_TX_GPIO_CLK                 RCC_AHB1Periph_GPIOB
+#define USART_1_TX_PIN                      GPIO_Pin_6
+#define USART_1_TX_SOURCE                   GPIO_PinSource6
+
+#endif // USART_1_TX_A9
+
+#ifdef USART_1_RX_A10
+
+#define USART_1_RX_GPIO_PORT                GPIOA
+#define USART_1_RX_GPIO_CLK                 RCC_AHB1Periph_GPIOA
+#define USART_1_RX_PIN                      GPIO_Pin_10
+#define USART_1_RX_SOURCE                   GPIO_PinSource10
+
+#elif defined USART_1_RX_B7
+
+#define USART_1_RX_GPIO_PORT                GPIOB
+#define USART_1_RX_GPIO_CLK                 RCC_AHB1Periph_GPIOB
+#define USART_1_RX_PIN                      GPIO_Pin_7
+#define USART_1_RX_SOURCE                   GPIO_PinSource7
+
+#endif // USART_1_RX_A10
+
+
+
+
+
+
+
 /************************************************************/
 
 
@@ -32,13 +69,7 @@ extern "C" {
 
 #define             macUSARTx                                USART1
 #define             macUSART_APBxClock_FUN                   RCC_APB2PeriphClockCmd
-#define             macUSART_CLK                             RCC_APB2Periph_USART1
 #define             macUSART_GPIO_APBxClock_FUN              RCC_APB2PeriphClockCmd
-#define             macUSART_GPIO_CLK                        RCC_APB2Periph_GPIOA     
-#define             macUSART_TX_PORT                         GPIOA   
-#define             macUSART_TX_PIN                          GPIO_Pin_9
-#define             macUSART_RX_PORT                         GPIOA 
-#define             macUSART_RX_PIN                          GPIO_Pin_10
 #define             macUSART_IRQ                             USART1_IRQn
 #define             macUSART_INT_FUN                         USART1_IRQHandler
 
@@ -47,16 +78,9 @@ extern "C" {
 
 
 
-void USART1_Config(void);
-void UsartReceive(void);
-
-
-void NVIC_Configuration(void);
-void Usart_SendStr_length(uint8_t *str,uint32_t strlen);
-void Usart_SendString(uint8_t *str);
-int fputc(int ch, FILE *f);
-int fgetc(FILE *f);
-void USART1_printf(USART_TypeDef* USARTx, uint8_t *Data,...);
+void USART1_Config(int baud);
+//void UsartReceive(void);
+static void USART1_NVIC_Config(void);
 
 
 #ifdef __cplusplus

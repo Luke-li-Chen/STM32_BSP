@@ -37,7 +37,7 @@ int main(void)
     Delay(0xFFFFFF);
 
     //Debug_USART_Config(115200);
-    USART1_Config();
+    USART1_Config(115200);
 
     Usart_SendStr(USART1, "Test of usart\n");
     //printf("Test of usart\n");
