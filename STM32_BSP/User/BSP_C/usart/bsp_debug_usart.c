@@ -128,7 +128,7 @@ void Usart_SendnStr(USART_TypeDef * pUSARTx, uint8_t *str, uint32_t strlen)
 * @param    str: 要发送的字符串
 * @retval   无
 */
-void Usart_SendStr(USART_TypeDef * pUSARTx, uint8_t *str)
+void Usart_SendStr(USART_TypeDef * pUSARTx, const uint8_t *str)
 {
     for (; *str != '\0'; str++)
     {

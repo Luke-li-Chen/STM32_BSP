@@ -43,7 +43,7 @@ extern "C" {
 void Debug_USART_Config(int baud);
 void Usart_SendByte(USART_TypeDef * pUSARTx, uint8_t ch);
 void Usart_SendnStr(USART_TypeDef * pUSARTx, uint8_t *str, uint32_t strlen);
-void Usart_SendStr(USART_TypeDef * pUSARTx, uint8_t *str);
+void Usart_SendStr(USART_TypeDef * pUSARTx, const uint8_t *str);
 int fputc(int ch, FILE *f);
 int fgetc(FILE *f);
 
