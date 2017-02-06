@@ -31,7 +31,7 @@
 
 #include "stm32f4xx_it.h"
 #include "util.h"
-#include "BSP_C/usart/bsp_debug_usart.h"
+//#include "BSP_C/usart/bsp_debug_usart.h"
 
 
 /** @addtogroup STM32F429I_DISCOVERY_Examples
@@ -153,10 +153,10 @@ extern byte g_UartTmp;
 extern bool g_bUartFlag;
 void USART1_IRQHandler(void)
 {
-    if (USART_GetITStatus(DEBUG_USART, USART_IT_RXNE) != RESET)
+    if (USART_GetITStatus(USART1, USART_IT_RXNE) != RESET)
     {
         g_bUartFlag = true;
-        g_UartTmp = USART_ReceiveData(DEBUG_USART);
+        g_UartTmp = USART_ReceiveData(USART1);
     }
 }
 

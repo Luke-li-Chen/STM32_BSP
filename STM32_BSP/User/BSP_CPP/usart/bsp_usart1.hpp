@@ -17,9 +17,9 @@ public:
         A10,
         B7
     };
-    Usart1(int baud, uint8_t prePriority = 0, uint8_t subPriority = 0,
+    Usart1(uint32_t baud, uint8_t prePriority = 0, uint8_t subPriority = 0,
         bool useInterrupt = true, TxPin txPin = A9, RxPin rxPin = A10);
-    void Init(int baud, uint8_t prePriority = 0, uint8_t subPriority = 0,
+    void Init(uint32_t baud, uint8_t prePriority = 0, uint8_t subPriority = 0,
         bool useInterrupt = true, TxPin txPin = A9, RxPin rxPin = A10);
 
     virtual void rccGPIOCmd(uint32_t, FunctionalState);

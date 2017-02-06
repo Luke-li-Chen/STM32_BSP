@@ -19,6 +19,7 @@
 //#include "BSP_C/usart/bsp_debug_usart.h"
 //#include "BSP_C/usart/bsp_usart1.h"
 #include "BSP_CPP/usart/bsp_usart1.hpp"
+#include <stdio.h>
 
 void Delay(__IO uint32_t nCount);
 
@@ -41,24 +42,25 @@ int main(void)
 
     Usart1 usart1(115200);
 
-    usart1.SendByte('a');
+    usart1.SendStr("Hello ");
+    usart1.SendnStr("World!", 2);
+    usart1.SendByte('\n');
 
-    //Usart_SendStr(USART1, "Test of usart\n");
-    //printf("Test of usart\n");
+    printf("Test of usart\n");
     //DEBUG("hhh");
 
-    //while (true)
-    //{
-    //    if (!g_bUartFlag)
-    //    {
-    //        continue;
-    //    }
+    while (true)
+    {
+        if (!g_bUartFlag)
+        {
+            continue;
+        }
 
-    //    g_bUartFlag = false;
-    //    led.RgbRotate();
+        g_bUartFlag = false;
+        led.RgbRotate();
 
-    //    //Usart_SendByte(USART1, g_UartTmp);
-    //}
+        usart1.SendByte(g_UartTmp);
+    }
 
 
 }

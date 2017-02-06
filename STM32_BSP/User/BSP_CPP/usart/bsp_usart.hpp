@@ -2,15 +2,19 @@
 #define __BSP_USART_HPP
 
 #include "stm32f4xx.h"
+#include "util.h"
+//#include <stdio.h>
 
 class Usart
 {
 public:
     //Usart();
 
-    void InitBase(int baud, uint8_t prePriority, uint8_t subPriority, bool useInterrupt);
+    void InitBase(uint32_t baud, uint8_t prePriority, uint8_t subPriority, bool useInterrupt);
 
-    void SendByte(uint8_t ch);
+    void SendByte(byte ch);
+    void SendnStr(const byte * str, uint32_t strlen);
+    void SendStr(const byte * str);
 
 protected:
     void NvicConfig(uint8_t prePriority, uint8_t subPriority);
@@ -22,11 +26,8 @@ protected:
     uint32_t m_usartClk;    // 串口时钟
     IRQn m_irq;             // 中断号
 
-    void(*m_rccGPIOCmd)(uint32_t, FunctionalState);  // 管脚IO时钟控制函数
-    void(*m_rccUsartCmd)(uint32_t, FunctionalState); // 串口时钟控制函数
-
-    virtual void rccGPIOCmd(uint32_t, FunctionalState) = 0;     //
-    virtual void rccUsartCmd(uint32_t, FunctionalState) = 0;    //
+    virtual void rccGPIOCmd(uint32_t, FunctionalState) = 0;     // 管脚IO时钟控制函数
+    virtual void rccUsartCmd(uint32_t, FunctionalState) = 0;    // 串口时钟控制函数
 
     GPIO_TypeDef* m_txPort; // 发送管脚PORT
     GPIO_TypeDef* m_rxPort; // 接收管脚PORT
@@ -40,6 +41,11 @@ protected:
     uint8_t m_gpioAF;   // GPIO管脚复用目标
 
 };
+
+
+/*#define DEBUG_USART                             USART1*/
+//int fputc(int ch, FILE *f);
+//int fgetc(FILE *f);
 
 #endif  // __BSP_USART_HPP
 

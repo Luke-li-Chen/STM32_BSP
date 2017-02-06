@@ -5,14 +5,14 @@
 //{
 //}
 
-void Usart::InitBase(int baud, uint8_t prePriority, uint8_t subPriority, bool useInterrupt)
+void Usart::InitBase(uint32_t baud, uint8_t prePriority, uint8_t subPriority, bool useInterrupt)
 {
     GPIO_InitTypeDef gpioIni;
     USART_InitTypeDef usartIni;
 
     // 使能时钟
-    m_rccGPIOCmd(m_txClk | m_rxClk, ENABLE);
-    m_rccUsartCmd(m_usartClk, ENABLE);
+    rccGPIOCmd(m_txClk | m_rxClk, ENABLE);
+    rccUsartCmd(m_usartClk, ENABLE);
 
     gpioIni.GPIO_OType  = GPIO_OType_PP;
     gpioIni.GPIO_PuPd   = GPIO_PuPd_UP;
@@ -59,13 +59,45 @@ void Usart::InitBase(int baud, uint8_t prePriority, uint8_t subPriority, bool us
     USART_Cmd(m_usart, ENABLE);
 }
 
-void Usart::SendByte(uint8_t ch)
+/**
+* @brief    串口发送一个字节
+* @param    ch: 要发送的字节
+* @retval   无
+*/
+void Usart::SendByte(byte ch)
 {
     // 发送一个字节数据到USART1
     USART_SendData(m_usart, ch);
 
     // 等待发送完毕
     while (USART_GetFlagStatus(m_usart, USART_FLAG_TXE) == RESET);
+}
+
+/**
+* @brief    串口发送指定长度的字符串
+* @param    str: 要发送的字符串
+* @param    strlen: 要发送的长度
+* @retval   无
+*/
+void Usart::SendnStr(const byte * str, uint32_t strlen)
+{
+    for (uint32_t i = 0; i < strlen; i++, str++)
+    {
+        SendByte(*str);
+    }
+}
+
+/**
+* @brief    串口发送字符串
+* @param    str: 要发送的字符串
+* @retval   无
+*/
+void Usart::SendStr(const byte * str)
+{
+    for (; *str != '\0'; str++)
+    {
+        SendByte(*str);
+    }
 }
 
 /**
@@ -83,3 +115,34 @@ void Usart::NvicConfig(uint8_t prePriority, uint8_t subPriority)
     nvicIni.NVIC_IRQChannelCmd = ENABLE;
     NVIC_Init(&nvicIni);
 }
+
+
+///**
+//* @brief    重定向 c 库函数 fputc 到串口 DEBUG_USART，重定向后可使用 printf 函数
+//* @param    ch: 要发送的字符
+//* @retval   发送的字符
+//*/
+//int fputc(int ch, FILE *f)
+//{
+//    // 发送一个字节数据到串口DEBUG_USART
+//    USART_SendData(DEBUG_USART, (uint8_t)ch);
+//
+//    // 等待发送完毕
+//    while (USART_GetFlagStatus(DEBUG_USART, USART_FLAG_TXE) == RESET);
+//    // 或者
+//    // while (USART_GetFlagStatus(DEBUG_USART, USART_FLAG_TC) == RESET);
+//    return (ch);
+//}
+//
+//
+///**
+//* @brief    重定向 c 库函数 fgetc 到串口 DEBUG_USART，重写向后可使用 scanf、getchar 等函数
+//* @retval   接收的字符
+//*/
+//int fgetc(FILE *f)
+//{
+//    // 等待串口输入数据
+//    while (USART_GetFlagStatus(DEBUG_USART, USART_FLAG_RXNE) == RESET);
+//
+//    return (int)USART_ReceiveData(DEBUG_USART);
+//}

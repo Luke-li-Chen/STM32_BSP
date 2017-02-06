@@ -1,7 +1,7 @@
 #include "bsp_usart1.hpp"
 
 
-Usart1::Usart1(int baud, uint8_t prePriority, uint8_t subPriority,
+Usart1::Usart1(uint32_t baud, uint8_t prePriority, uint8_t subPriority,
     bool useInterrupt, TxPin txPin, RxPin rxPin)
     : Usart()
 {
@@ -18,12 +18,9 @@ Usart1::Usart1(int baud, uint8_t prePriority, uint8_t subPriority,
 * @param    rxPin: 接收管脚，默认为 A10
 * @retval   无
 */
-void Usart1::Init(int baud, uint8_t prePriority, uint8_t subPriority,
+void Usart1::Init(uint32_t baud, uint8_t prePriority, uint8_t subPriority,
     bool useInterrupt, TxPin txPin, RxPin rxPin)
 {
-    m_rccGPIOCmd = RCC_AHB1PeriphClockCmd;
-    m_rccUsartCmd = RCC_APB2PeriphClockCmd;
-
     m_usart = USART1;
     m_usartClk = RCC_APB2Periph_USART1;
     m_gpioAF = GPIO_AF_USART1;
