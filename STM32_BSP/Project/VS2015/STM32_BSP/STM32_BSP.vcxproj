@@ -151,6 +151,8 @@
     <ClInclude Include="..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_usart.h" />
     <ClInclude Include="..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_wwdg.h" />
     <ClInclude Include="..\..\..\User\BSP_CPP\led\bsp_led.hpp" />
+    <ClInclude Include="..\..\..\User\BSP_CPP\usart\bsp_usart.hpp" />
+    <ClInclude Include="..\..\..\User\BSP_CPP\usart\bsp_usart1.hpp" />
     <ClInclude Include="..\..\..\User\BSP_C\led\bsp_led.h" />
     <ClInclude Include="..\..\..\User\BSP_C\usart\bsp_debug_usart.h" />
     <ClInclude Include="..\..\..\User\BSP_C\usart\bsp_usart1.h" />
@@ -201,6 +203,8 @@
     <ClCompile Include="..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_usart.c" />
     <ClCompile Include="..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_wwdg.c" />
     <ClCompile Include="..\..\..\User\BSP_CPP\led\bsp_led.cpp" />
+    <ClCompile Include="..\..\..\User\BSP_CPP\usart\bsp_usart.cpp" />
+    <ClCompile Include="..\..\..\User\BSP_CPP\usart\bsp_usart1.cpp" />
     <ClCompile Include="..\..\..\User\BSP_C\led\bsp_led.c" />
     <ClCompile Include="..\..\..\User\BSP_C\usart\bsp_debug_usart.c" />
     <ClCompile Include="..\..\..\User\BSP_C\usart\bsp_usart1.c" />

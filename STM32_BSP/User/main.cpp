@@ -16,9 +16,9 @@
 #include "stm32f4xx.h"
 #include "util.h"
 #include "BSP_CPP/led/bsp_led.hpp"
-#include "BSP_C/usart/bsp_debug_usart.h"
-#include "BSP_C/usart/bsp_usart1.h"
-
+//#include "BSP_C/usart/bsp_debug_usart.h"
+//#include "BSP_C/usart/bsp_usart1.h"
+#include "BSP_CPP/usart/bsp_usart.hpp"
 
 void Delay(__IO uint32_t nCount);
 

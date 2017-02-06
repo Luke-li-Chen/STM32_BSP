@@ -177,6 +177,12 @@
     <ClInclude Include="..\..\..\User\BSP_C\usart\bsp_usart1.h">
       <Filter>头文件\BSP_C</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\User\BSP_CPP\usart\bsp_usart.hpp">
+      <Filter>头文件\BSP_CPP</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\User\BSP_CPP\usart\bsp_usart1.hpp">
+      <Filter>头文件\BSP_CPP</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\Libraries\CMSIS\Device\ST\STM32F4xx\Source\Templates\system_stm32f4xx.c">
@@ -319,6 +325,12 @@
     </ClCompile>
     <ClCompile Include="..\..\..\User\BSP_C\usart\bsp_usart1.c">
       <Filter>源文件\BSP_C</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\User\BSP_CPP\usart\bsp_usart.cpp">
+      <Filter>源文件\BSP_CPP</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\User\BSP_CPP\usart\bsp_usart1.cpp">
+      <Filter>源文件\BSP_CPP</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
