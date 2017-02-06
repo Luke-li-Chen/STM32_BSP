@@ -1,9 +1,9 @@
 #include "bsp_usart.hpp"
 
 
-Usart::Usart()
-{
-}
+//Usart::Usart()
+//{
+//}
 
 void Usart::InitBase(int baud, uint8_t prePriority, uint8_t subPriority, bool useInterrupt)
 {
@@ -57,6 +57,15 @@ void Usart::InitBase(int baud, uint8_t prePriority, uint8_t subPriority, bool us
 
     /* 使能串口 */
     USART_Cmd(m_usart, ENABLE);
+}
+
+void Usart::SendByte(uint8_t ch)
+{
+    // 发送一个字节数据到USART1
+    USART_SendData(m_usart, ch);
+
+    // 等待发送完毕
+    while (USART_GetFlagStatus(m_usart, USART_FLAG_TXE) == RESET);
 }
 
 /**

@@ -6,9 +6,12 @@
 class Usart
 {
 public:
-    Usart();
+    //Usart();
 
     void InitBase(int baud, uint8_t prePriority, uint8_t subPriority, bool useInterrupt);
+
+    void SendByte(uint8_t ch);
+
 protected:
     void NvicConfig(uint8_t prePriority, uint8_t subPriority);
 

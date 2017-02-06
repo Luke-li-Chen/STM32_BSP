@@ -1,8 +1,8 @@
 #include "bsp_usart1.hpp"
 
 
-Usart1::Usart1(int baud, uint8_t prePriority = 0, uint8_t subPriority = 0,
-    bool useInterrupt = true, TxPin txPin = A9, RxPin rxPin = A10)
+Usart1::Usart1(int baud, uint8_t prePriority, uint8_t subPriority,
+    bool useInterrupt, TxPin txPin, RxPin rxPin)
     : Usart()
 {
     Init(baud, prePriority, subPriority, useInterrupt, txPin, rxPin);
@@ -18,8 +18,8 @@ Usart1::Usart1(int baud, uint8_t prePriority = 0, uint8_t subPriority = 0,
 * @param    rxPin: 接收管脚，默认为 A10
 * @retval   无
 */
-void Usart1::Init(int baud, uint8_t prePriority = 0, uint8_t subPriority = 0,
-    bool useInterrupt = true, TxPin txPin = A9, RxPin rxPin = A10)
+void Usart1::Init(int baud, uint8_t prePriority, uint8_t subPriority,
+    bool useInterrupt, TxPin txPin, RxPin rxPin)
 {
     m_rccGPIOCmd = RCC_AHB1PeriphClockCmd;
     m_rccUsartCmd = RCC_APB2PeriphClockCmd;
@@ -61,3 +61,15 @@ void Usart1::Init(int baud, uint8_t prePriority = 0, uint8_t subPriority = 0,
 
     InitBase(baud, prePriority, subPriority, useInterrupt);
 }
+
+
+void Usart1::rccGPIOCmd(uint32_t rcc, FunctionalState newState)
+{
+    RCC_AHB1PeriphClockCmd(rcc, newState);
+}
+
+void Usart1::rccUsartCmd(uint32_t rcc, FunctionalState newState)
+{
+    RCC_APB2PeriphClockCmd(rcc, newState);
+}
+
