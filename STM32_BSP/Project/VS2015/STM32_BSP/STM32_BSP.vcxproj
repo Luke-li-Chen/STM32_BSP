@@ -205,6 +205,7 @@
     <ClCompile Include="..\..\..\User\BSP_CPP\led\bsp_led.cpp" />
     <ClCompile Include="..\..\..\User\BSP_CPP\usart\bsp_usart.cpp" />
     <ClCompile Include="..\..\..\User\BSP_CPP\usart\bsp_usart1.cpp" />
+    <ClCompile Include="..\..\..\User\BSP_CPP\usart\bsp_usart2.cpp" />
     <ClCompile Include="..\..\..\User\BSP_CPP\usart\debug_usart.c" />
     <ClCompile Include="..\..\..\User\BSP_C\led\bsp_led.c" />
     <ClCompile Include="..\..\..\User\BSP_C\usart\bsp_debug_usart.c" />

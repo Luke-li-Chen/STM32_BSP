@@ -335,5 +335,8 @@
     <ClCompile Include="..\..\..\User\BSP_CPP\usart\debug_usart.c">
       <Filter>源文件\BSP_CPP</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\User\BSP_CPP\usart\bsp_usart2.cpp">
+      <Filter>源文件\BSP_CPP</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
