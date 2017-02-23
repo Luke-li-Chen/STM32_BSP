@@ -662,16 +662,6 @@
               <FilePath>..\..\User\stm32f4xx_it.cpp</FilePath>
             </File>
             <File>
-              <FileName>bsp_led.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\User\BSP_C\led\bsp_led.c</FilePath>
-            </File>
-            <File>
-              <FileName>bsp_debug_usart.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\User\BSP_C\usart\bsp_debug_usart.c</FilePath>
-            </File>
-            <File>
               <FileName>util.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>..\..\User\util.cpp</FilePath>
@@ -680,6 +670,26 @@
               <FileName>bsp_led.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>..\..\User\BSP_CPP\led\bsp_led.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>bsp_usart.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\..\User\BSP_CPP\usart\bsp_usart.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>bsp_usart1.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\..\User\BSP_CPP\usart\bsp_usart1.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>debug_usart.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\User\BSP_CPP\usart\debug_usart.c</FilePath>
+            </File>
+            <File>
+              <FileName>bsp_usart2.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\..\User\BSP_CPP\usart\bsp_usart2.cpp</FilePath>
             </File>
           </Files>
         </Group>

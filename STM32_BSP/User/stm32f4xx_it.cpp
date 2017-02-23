@@ -30,6 +30,8 @@
 /* Includes ------------------------------------------------------------------*/
 
 #include "stm32f4xx_it.h"
+#include "util.h"
+//#include "BSP_C/usart/bsp_debug_usart.h"
 
 
 /** @addtogroup STM32F429I_DISCOVERY_Examples
@@ -147,6 +149,16 @@ void SysTick_Handler(void)
 /*  file (startup_stm32f429_439xx.s).                         */
 /******************************************************************************/
 
+extern byte g_UartTmp;
+extern bool g_bUartFlag;
+void USART1_IRQHandler(void)
+{
+    if (USART_GetITStatus(USART1, USART_IT_RXNE) != RESET)
+    {
+        g_bUartFlag = true;
+        g_UartTmp = USART_ReceiveData(USART1);
+    }
+}
 
 /**
   * @}

@@ -14,10 +14,17 @@
   */
 
 #include "stm32f4xx.h"
+#include "util.h"
 #include "BSP_CPP/led/bsp_led.hpp"
-
+//#include "BSP_C/usart/bsp_debug_usart.h"
+//#include "BSP_C/usart/bsp_usart1.h"
+#include "BSP_CPP/usart/bsp_usart2.hpp"
+#include <stdio.h>
 
 void Delay(__IO uint32_t nCount);
+
+byte g_UartTmp;
+bool g_bUartFlag = false;
 
 /**
   * @brief  Ö÷º¯Êý
@@ -30,67 +37,33 @@ int main(void)
     led.Green(on);
     Delay(0xFFFFFF);
 
-    //while (true)
-    //{
-    //    Delay(0xFFFFFF);
-    //    led.RgbRotate();
-    //}
+    //Debug_USART_Config(115200);
+    //USART1_Config(115200);
 
+    Usart2 usart2(115200, 0, 0, true, Usart2::D5, Usart2::D6);
+    //Usart2 usart2(115200);
 
+    usart2.SendStr("Hello ");
+    usart2.SendnStr("World!", 2);
+    usart2.SendByte('\n');
 
-//     while (1)
-//     {
-//         led.Red(on);
-//         Delay(0xFFFFFF);
-//         led.Red(off);
-// 
-//         led.Green(on);
-//         Delay(0xFFFFFF);
-//         led.Green(off);
-// 
-//         led.Blue(on);
-//         Delay(0xFFFFFF);
-//         led.Blue(off);
-// 
-//         led.Pilot(on);
-//         Delay(0xFFFFFF);
-//         led.Pilot(off);
-//     }
+    printf("Test of usart\n");
+    //DEBUG("hhh");
 
-    while (1)
+    while (true)
     {
-        led.Red();
-        Delay(0xFFFFFF);
-        led.Red();
+        if (!g_bUartFlag)
+        {
+            continue;
+        }
 
-        led.Green();
-        Delay(0xFFFFFF);
-        led.Green();
+        g_bUartFlag = false;
+        led.RgbRotate();
 
-        led.Blue();
-        Delay(0xFFFFFF);
-        led.Blue();
-
-        led.Yellow();
-        Delay(0xFFFFFF);
-        led.Yellow();
-
-        led.Purple();
-        Delay(0xFFFFFF);
-        led.Purple();
-
-        led.Cyan();
-        Delay(0xFFFFFF);
-        led.Cyan();
-
-        led.White();
-        Delay(0xFFFFFF);
-        led.White();
-
-        led.Black();
-        Delay(0xFFFFFF);
-        led.Black();
+        usart2.SendByte(g_UartTmp);
     }
+
+
 }
 
 
