@@ -28,12 +28,6 @@
     <Filter Include="头文件\STM32F4xx_StdPeriph_Driver">
       <UniqueIdentifier>{f35be12e-348e-4b3f-b50a-7addb41cbfe3}</UniqueIdentifier>
     </Filter>
-    <Filter Include="头文件\BSP_C">
-      <UniqueIdentifier>{ab65c846-883b-4e9e-ab1c-c65e9d87e40d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="源文件\BSP_C">
-      <UniqueIdentifier>{3a986c80-2607-4955-8c56-82094449f0a7}</UniqueIdentifier>
-    </Filter>
     <Filter Include="头文件\USER">
       <UniqueIdentifier>{c6b9f0f8-ac83-44e5-af13-1ad5d469def3}</UniqueIdentifier>
     </Filter>
@@ -165,17 +159,8 @@
     <ClInclude Include="..\..\..\User\util.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\User\BSP_C\usart\bsp_debug_usart.h">
-      <Filter>头文件\BSP_C</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\User\BSP_C\led\bsp_led.h">
-      <Filter>头文件\BSP_C</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\User\BSP_CPP\led\bsp_led.hpp">
       <Filter>头文件\BSP_CPP</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\User\BSP_C\usart\bsp_usart1.h">
-      <Filter>头文件\BSP_C</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\User\BSP_CPP\usart\bsp_usart.hpp">
       <Filter>头文件\BSP_CPP</Filter>
@@ -308,23 +293,14 @@
     <ClCompile Include="..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_aes.c">
       <Filter>源文件\STM32F4xx_StdPeriph_Driver</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\User\BSP_C\usart\bsp_debug_usart.c">
-      <Filter>源文件\BSP_C</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\User\stm32f4xx_it.cpp">
       <Filter>源文件\USER</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\User\main.cpp">
       <Filter>源文件\USER</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\User\BSP_C\led\bsp_led.c">
-      <Filter>源文件\BSP_C</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\User\BSP_CPP\led\bsp_led.cpp">
       <Filter>源文件\BSP_CPP</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\User\BSP_C\usart\bsp_usart1.c">
-      <Filter>源文件\BSP_C</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\User\BSP_CPP\usart\bsp_usart.cpp">
       <Filter>源文件\BSP_CPP</Filter>
