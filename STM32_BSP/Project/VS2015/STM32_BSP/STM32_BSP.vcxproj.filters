@@ -168,6 +168,9 @@
     <ClInclude Include="..\..\..\User\BSP_CPP\usart\bsp_usart1.hpp">
       <Filter>头文件\BSP_CPP</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\User\BSP_CPP\usart\bsp_usart2.hpp">
+      <Filter>头文件\BSP_CPP</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\Libraries\CMSIS\Device\ST\STM32F4xx\Source\Templates\system_stm32f4xx.c">

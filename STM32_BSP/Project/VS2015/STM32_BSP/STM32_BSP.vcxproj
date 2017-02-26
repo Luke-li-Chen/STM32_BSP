@@ -153,6 +153,7 @@
     <ClInclude Include="..\..\..\User\BSP_CPP\led\bsp_led.hpp" />
     <ClInclude Include="..\..\..\User\BSP_CPP\usart\bsp_usart.hpp" />
     <ClInclude Include="..\..\..\User\BSP_CPP\usart\bsp_usart1.hpp" />
+    <ClInclude Include="..\..\..\User\BSP_CPP\usart\bsp_usart2.hpp" />
     <ClInclude Include="..\..\..\User\stm32f4xx_conf.h" />
     <ClInclude Include="..\..\..\User\stm32f4xx_it.h" />
     <ClInclude Include="..\..\..\User\util.h" />
