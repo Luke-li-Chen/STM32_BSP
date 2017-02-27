@@ -1,7 +1,6 @@
-#include <stdio.h>
 #include "stm32f4xx.h"
+#include "bsp_usart_debug.h"
 
-#define DEBUG_USART                             USART1
 
 /**
 * @brief    重定向 c 库函数 fputc 到串口 DEBUG_USART，重定向后可使用 printf 函数
@@ -15,8 +14,7 @@ int fputc(int ch, FILE *f)
 
     // 等待发送完毕
     while (USART_GetFlagStatus(DEBUG_USART, USART_FLAG_TXE) == RESET);
-    // 或者
-    // while (USART_GetFlagStatus(DEBUG_USART, USART_FLAG_TC) == RESET);
+
     return (ch);
 }
 
