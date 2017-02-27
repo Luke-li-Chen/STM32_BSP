@@ -1,5 +1,5 @@
-#ifndef __BSP_USART1_HPP
-#define __BSP_USART1_HPP
+#ifndef __BSP_USART2_HPP
+#define __BSP_USART2_HPP
 
 #include "stm32f4xx.h"
 #include "bsp_usart.hpp"
@@ -26,4 +26,4 @@ public:
     virtual void rccUsartCmd(uint32_t, FunctionalState);
 };
 
-#endif  // __BSP_USART1_HPP
+#endif  // __BSP_USART2_HPP

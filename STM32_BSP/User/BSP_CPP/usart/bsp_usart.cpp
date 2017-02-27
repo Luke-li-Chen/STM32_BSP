@@ -1,9 +1,6 @@
 #include "bsp_usart.hpp"
 
 
-//Usart::Usart()
-//{
-//}
 
 void Usart::InitBase(uint32_t baud, uint8_t prePriority, uint8_t subPriority, bool useInterrupt)
 {
@@ -46,7 +43,7 @@ void Usart::InitBase(uint32_t baud, uint8_t prePriority, uint8_t subPriority, bo
 
         /* CPU的小缺陷：串口配置好，如果直接Send，则第1个字节发送不出去
         如下语句解决第1个字节无法正确发送出去的问题 */
-        USART_ClearFlag(USART1, USART_FLAG_TC);     /* 清发送完成标志，Transmission Complete flag */
+        //USART_ClearFlag(USART1, USART_FLAG_TC);     /* 清发送完成标志，Transmission Complete flag */
     }
 
     /*
@@ -66,10 +63,11 @@ void Usart::InitBase(uint32_t baud, uint8_t prePriority, uint8_t subPriority, bo
 */
 void Usart::SendByte(byte ch)
 {
-    // 发送一个字节数据到USART1
+    // 发送一个字节数据到 m_usart
     USART_SendData(m_usart, ch);
 
     // 等待发送完毕
+    // TODO: 使用 USART_FLAG_TC 判断会如何？
     while (USART_GetFlagStatus(m_usart, USART_FLAG_TXE) == RESET);
 }
 
@@ -117,32 +115,11 @@ void Usart::NvicConfig(uint8_t prePriority, uint8_t subPriority)
 }
 
 
-///**
-//* @brief    重定向 c 库函数 fputc 到串口 DEBUG_USART，重定向后可使用 printf 函数
-//* @param    ch: 要发送的字符
-//* @retval   发送的字符
-//*/
-//int fputc(int ch, FILE *f)
-//{
-//    // 发送一个字节数据到串口DEBUG_USART
-//    USART_SendData(DEBUG_USART, (uint8_t)ch);
-//
-//    // 等待发送完毕
-//    while (USART_GetFlagStatus(DEBUG_USART, USART_FLAG_TXE) == RESET);
-//    // 或者
-//    // while (USART_GetFlagStatus(DEBUG_USART, USART_FLAG_TC) == RESET);
-//    return (ch);
-//}
-//
-//
-///**
-//* @brief    重定向 c 库函数 fgetc 到串口 DEBUG_USART，重写向后可使用 scanf、getchar 等函数
-//* @retval   接收的字符
-//*/
-//int fgetc(FILE *f)
-//{
-//    // 等待串口输入数据
-//    while (USART_GetFlagStatus(DEBUG_USART, USART_FLAG_RXNE) == RESET);
-//
-//    return (int)USART_ReceiveData(DEBUG_USART);
-//}
+//TODO:加入中断接收函数
+/*
+if (USART_GetITStatus(USART1, USART_IT_RXNE) != RESET)
+{
+g_bUartFlag = true;
+g_UartTmp = USART_ReceiveData(USART1);
+}
+*/

@@ -682,14 +682,14 @@
               <FilePath>..\..\User\BSP_CPP\usart\bsp_usart1.cpp</FilePath>
             </File>
             <File>
-              <FileName>debug_usart.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\User\BSP_CPP\usart\debug_usart.c</FilePath>
-            </File>
-            <File>
               <FileName>bsp_usart2.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>..\..\User\BSP_CPP\usart\bsp_usart2.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>bsp_usart_debug.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\User\BSP_CPP\usart\bsp_usart_debug.c</FilePath>
             </File>
           </Files>
         </Group>
