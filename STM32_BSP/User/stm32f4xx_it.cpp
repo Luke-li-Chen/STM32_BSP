@@ -31,7 +31,6 @@
 
 #include "stm32f4xx_it.h"
 #include "util.h"
-//#include "BSP_C/usart/bsp_debug_usart.h"
 
 
 /** @addtogroup STM32F429I_DISCOVERY_Examples

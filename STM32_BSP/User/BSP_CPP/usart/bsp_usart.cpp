@@ -67,6 +67,7 @@ void Usart::SendByte(byte ch)
     USART_SendData(m_usart, ch);
 
     // 等待发送完毕
+    // TODO: 使用 USART_FLAG_TC 判断会如何？
     while (USART_GetFlagStatus(m_usart, USART_FLAG_TXE) == RESET);
 }
 
@@ -112,3 +113,13 @@ void Usart::NvicConfig(uint8_t prePriority, uint8_t subPriority)
     nvicIni.NVIC_IRQChannelCmd = ENABLE;
     NVIC_Init(&nvicIni);
 }
+
+
+//TODO:加入中断接收函数
+/*
+if (USART_GetITStatus(USART1, USART_IT_RXNE) != RESET)
+{
+g_bUartFlag = true;
+g_UartTmp = USART_ReceiveData(USART1);
+}
+*/
