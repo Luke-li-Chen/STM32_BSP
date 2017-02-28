@@ -97,6 +97,16 @@ void Usart::SendStr(const byte * str)
     }
 }
 
+bool Usart::ReceiveDataByItRXNE(USART_TypeDef * usart, byte & data)
+{
+    if (USART_GetITStatus(usart, USART_IT_RXNE) != RESET)
+    {
+        data = USART_ReceiveData(usart);
+        return true;
+    }
+    return false;
+}
+
 /**
 * @brief    串口中断初始化
 * @param    prePriority: 抢占优先级
@@ -116,9 +126,7 @@ void Usart::NvicConfig(uint8_t prePriority, uint8_t subPriority)
 
 //TODO:加入中断接收函数
 /*
-if (USART_GetITStatus(USART1, USART_IT_RXNE) != RESET)
-{
-g_bUartFlag = true;
-g_UartTmp = USART_ReceiveData(USART1);
-}
+
 */
+
+
