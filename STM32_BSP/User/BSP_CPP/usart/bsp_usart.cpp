@@ -35,8 +35,8 @@ void Usart::InitBase(uint32_t baud, uint8_t prePriority, uint8_t subPriority, bo
 
     if (useInterrupt)
     {
-        /* 使能串口1接收中断 */
-        USART_ITConfig(USART1, USART_IT_RXNE, ENABLE);
+        /* 使能串口接收中断 */
+        USART_ITConfig(m_usart, USART_IT_RXNE, ENABLE);
 
         /* 配置串口中断优先级 */
         NvicConfig(prePriority, subPriority);
