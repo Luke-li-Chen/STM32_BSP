@@ -35,12 +35,17 @@ int main(void)
     led.Green(on);
     Delay(0xFFFFFF);
 
-    Usart2 usart2(115200, 0, 0, true, Usart2::D5, Usart2::D6);
-    //Usart2 usart2(115200);
+    //Usart2 usart2(115200, 0, 0, true, Usart2::D5, Usart2::D6);
+    Usart2 usart2(115200);
 
     usart2.SendStr("Hello ");
     usart2.SendnStr("World!", 2);
     usart2.SendByte('\n');
+
+    for (int i = 0; i < 2; i++)
+    {
+        usart2.SendByte(0xAA);
+    }
 
     printf("Test of usart\n");
 

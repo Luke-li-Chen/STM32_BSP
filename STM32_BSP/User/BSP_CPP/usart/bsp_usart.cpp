@@ -33,6 +33,9 @@ void Usart::InitBase(uint32_t baud, uint8_t prePriority, uint8_t subPriority, bo
     usartIni.USART_Mode                  = USART_Mode_Rx | USART_Mode_Tx;
     USART_Init(m_usart, &usartIni);
 
+    // 解决第 1 个字节无法正确发送出去的问题
+    //USART_ClearFlag(m_usart, USART_FLAG_TC);     // 清发送完成标志
+
     if (useInterrupt)
     {
         /* 使能串口接收中断 */
@@ -40,10 +43,6 @@ void Usart::InitBase(uint32_t baud, uint8_t prePriority, uint8_t subPriority, bo
 
         /* 配置串口中断优先级 */
         NvicConfig(prePriority, subPriority);
-
-        /* CPU的小缺陷：串口配置好，如果直接Send，则第1个字节发送不出去
-        如下语句解决第1个字节无法正确发送出去的问题 */
-        //USART_ClearFlag(USART1, USART_FLAG_TC);     /* 清发送完成标志，Transmission Complete flag */
     }
 
     /*
