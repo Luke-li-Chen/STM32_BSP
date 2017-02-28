@@ -33,17 +33,16 @@ void Usart::InitBase(uint32_t baud, uint8_t prePriority, uint8_t subPriority, bo
     usartIni.USART_Mode                  = USART_Mode_Rx | USART_Mode_Tx;
     USART_Init(m_usart, &usartIni);
 
+    // 解决第 1 个字节无法正确发送出去的问题
+    //USART_ClearFlag(m_usart, USART_FLAG_TC);     // 清发送完成标志
+
     if (useInterrupt)
     {
-        /* 使能串口1接收中断 */
-        USART_ITConfig(USART1, USART_IT_RXNE, ENABLE);
+        /* 使能串口接收中断 */
+        USART_ITConfig(m_usart, USART_IT_RXNE, ENABLE);
 
         /* 配置串口中断优先级 */
         NvicConfig(prePriority, subPriority);
-
-        /* CPU的小缺陷：串口配置好，如果直接Send，则第1个字节发送不出去
-        如下语句解决第1个字节无法正确发送出去的问题 */
-        //USART_ClearFlag(USART1, USART_FLAG_TC);     /* 清发送完成标志，Transmission Complete flag */
     }
 
     /*
@@ -98,6 +97,16 @@ void Usart::SendStr(const byte * str)
     }
 }
 
+bool Usart::ReceiveDataByItRXNE(USART_TypeDef * usart, byte & data)
+{
+    if (USART_GetITStatus(usart, USART_IT_RXNE) != RESET)
+    {
+        data = USART_ReceiveData(usart);
+        return true;
+    }
+    return false;
+}
+
 /**
 * @brief    串口中断初始化
 * @param    prePriority: 抢占优先级
@@ -117,9 +126,7 @@ void Usart::NvicConfig(uint8_t prePriority, uint8_t subPriority)
 
 //TODO:加入中断接收函数
 /*
-if (USART_GetITStatus(USART1, USART_IT_RXNE) != RESET)
-{
-g_bUartFlag = true;
-g_UartTmp = USART_ReceiveData(USART1);
-}
+
 */
+
+

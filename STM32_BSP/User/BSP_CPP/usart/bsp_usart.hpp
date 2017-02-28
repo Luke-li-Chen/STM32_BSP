@@ -15,6 +15,8 @@ public:
     void SendnStr(const byte * str, uint32_t strlen);
     void SendStr(const byte * str);
 
+    static bool ReceiveDataByItRXNE(USART_TypeDef * usart, byte & data);
+
 protected:
     void NvicConfig(uint8_t prePriority, uint8_t subPriority);  // 设置中断优先级
     virtual void rccGPIOCmd(uint32_t, FunctionalState)  = 0;    // 管脚IO时钟控制函数

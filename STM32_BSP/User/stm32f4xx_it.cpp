@@ -31,6 +31,7 @@
 
 #include "stm32f4xx_it.h"
 #include "util.h"
+#include "BSP_CPP/usart/bsp_usart.hpp"
 
 
 /** @addtogroup STM32F429I_DISCOVERY_Examples
@@ -157,6 +158,11 @@ void USART1_IRQHandler(void)
         g_bUartFlag = true;
         g_UartTmp = USART_ReceiveData(USART1);
     }
+}
+
+void USART2_IRQHandler(void)
+{
+    g_bUartFlag = Usart::ReceiveDataByItRXNE(USART2, g_UartTmp);
 }
 
 /**
