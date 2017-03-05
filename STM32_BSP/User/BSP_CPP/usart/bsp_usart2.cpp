@@ -14,8 +14,8 @@ Usart2::Usart2(uint32_t baud, uint8_t prePriority, uint8_t subPriority,
 * @param    prePriority: 抢占优先级；若 useInterrupt 为 false，则该参数无效
 * @param    subPriority: 响应优先级；若 useInterrupt 为 false，则该参数无效
 * @param    useInterrupt: 是否使用接收中断，默认为 true
-* @param    txPin: 发送管脚，默认为 A9
-* @param    rxPin: 接收管脚，默认为 A10
+* @param    txPin: 发送管脚，默认为 D5
+* @param    rxPin: 接收管脚，默认为 D6
 * @retval   无
 */
 void Usart2::Init(uint32_t baud, uint8_t prePriority, uint8_t subPriority,
