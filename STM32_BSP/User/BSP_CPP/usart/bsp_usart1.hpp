@@ -4,6 +4,7 @@
 #include "stm32f4xx.h"
 #include "bsp_usart.hpp"
 
+
 class Usart1 : public Usart
 {
 public:
