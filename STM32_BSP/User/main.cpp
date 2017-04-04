@@ -23,6 +23,7 @@ void Delay(__IO uint32_t nCount);
 
 byte g_UartTmp;
 bool g_bUartFlag = false;
+Usart2 usart2(115200);
 
 /**
   * @brief  Ö÷º¯Êý
@@ -36,7 +37,7 @@ int main(void)
     Delay(0xFFFFFF);
 
     //Usart2 usart2(115200, 0, 0, true, Usart2::D5, Usart2::D6);
-    Usart2 usart2(115200);
+    
 
     usart2.SendStr("Hello ");
     usart2.SendnStr("World!", 2);
@@ -47,21 +48,21 @@ int main(void)
         usart2.SendByte(0xAA);
     }
 
-    printf("Test of usart\n");
+    printf("%u\n", sizeof(Usart2));
 
     debug("hhh - %d", 42);
 
     while (true)
     {
-        if (!g_bUartFlag)
+        if (!usart2.GetItFlag())
         {
             continue;
         }
 
-        g_bUartFlag = false;
+        usart2.ResetItFlag();
         led.RgbRotate();
 
-        usart2.SendByte(g_UartTmp);
+        usart2.SendByte(usart2.GetReceivedData() + 1);
     }
 }
 

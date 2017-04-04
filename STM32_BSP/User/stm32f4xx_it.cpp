@@ -31,7 +31,7 @@
 
 #include "stm32f4xx_it.h"
 #include "util.h"
-#include "BSP_CPP/usart/bsp_usart.hpp"
+#include "BSP_CPP/usart/bsp_usart2.hpp"
 
 
 /** @addtogroup STM32F429I_DISCOVERY_Examples
@@ -151,6 +151,8 @@ void SysTick_Handler(void)
 
 extern byte g_UartTmp;
 extern bool g_bUartFlag;
+extern Usart2 usart2;
+
 void USART1_IRQHandler(void)
 {
     if (USART_GetITStatus(USART1, USART_IT_RXNE) != RESET)
@@ -162,7 +164,7 @@ void USART1_IRQHandler(void)
 
 void USART2_IRQHandler(void)
 {
-    g_bUartFlag = Usart::ReceiveDataByItRXNE(USART2, g_UartTmp);
+    usart2.ReceiveDataByIRQ();
 }
 
 /**
