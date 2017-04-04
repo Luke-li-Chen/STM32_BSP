@@ -40,12 +40,12 @@ void Uart5::Init(uint32_t baud, uint8_t prePriority, uint8_t subPriority,
 }
 
 
-void Usart2::rccGPIOCmd(uint32_t rcc, FunctionalState newState)
+void Uart5::rccGPIOCmd(uint32_t rcc, FunctionalState newState)
 {
     RCC_AHB1PeriphClockCmd(rcc, newState);
 }
 
-void Usart2::rccUsartCmd(uint32_t rcc, FunctionalState newState)
+void Uart5::rccUsartCmd(uint32_t rcc, FunctionalState newState)
 {
     RCC_APB1PeriphClockCmd(rcc, newState);
 }

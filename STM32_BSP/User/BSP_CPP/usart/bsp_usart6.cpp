@@ -60,12 +60,12 @@ void Usart6::Init(uint32_t baud, uint8_t prePriority, uint8_t subPriority,
 }
 
 
-void Usart2::rccGPIOCmd(uint32_t rcc, FunctionalState newState)
+void Usart6::rccGPIOCmd(uint32_t rcc, FunctionalState newState)
 {
     RCC_AHB1PeriphClockCmd(rcc, newState);
 }
 
-void Usart2::rccUsartCmd(uint32_t rcc, FunctionalState newState)
+void Usart6::rccUsartCmd(uint32_t rcc, FunctionalState newState)
 {
     RCC_APB2PeriphClockCmd(rcc, newState);
 }

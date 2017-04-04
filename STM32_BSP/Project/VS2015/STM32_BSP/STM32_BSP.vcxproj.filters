@@ -37,6 +37,12 @@
     <Filter Include="头文件\BSP_CPP">
       <UniqueIdentifier>{6f21c24e-008e-421b-83ee-c0697b110e96}</UniqueIdentifier>
     </Filter>
+    <Filter Include="头文件\BSP_CPP\Usart">
+      <UniqueIdentifier>{1ebd44ac-d1a7-4a02-ae86-5eefae2a3dd3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\BSP_CPP\Usart">
+      <UniqueIdentifier>{1f4b0fe2-b9f5-4b5a-8fee-f931dcacf0d4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\Libraries\CMSIS\Device\ST\STM32F4xx\Include\stm32f4xx.h">
@@ -162,20 +168,32 @@
     <ClInclude Include="..\..\..\User\BSP_CPP\led\bsp_led.hpp">
       <Filter>头文件\BSP_CPP</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\User\BSP_CPP\usart\bsp_usart3.hpp">
+      <Filter>头文件\BSP_CPP\Usart</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\..\User\BSP_CPP\usart\bsp_usart.hpp">
-      <Filter>头文件\BSP_CPP</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\User\BSP_CPP\usart\bsp_usart1.hpp">
-      <Filter>头文件\BSP_CPP</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\User\BSP_CPP\usart\bsp_usart2.hpp">
-      <Filter>头文件\BSP_CPP</Filter>
+      <Filter>头文件\BSP_CPP\Usart</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\User\BSP_CPP\usart\bsp_usart_debug.h">
-      <Filter>头文件\BSP_CPP</Filter>
+      <Filter>头文件\BSP_CPP\Usart</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\User\BSP_CPP\usart\bsp_usart3.hpp">
-      <Filter>头文件\BSP_CPP</Filter>
+    <ClInclude Include="..\..\..\User\BSP_CPP\usart\bsp_usart1.hpp">
+      <Filter>头文件\BSP_CPP\Usart</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\User\BSP_CPP\usart\bsp_usart2.hpp">
+      <Filter>头文件\BSP_CPP\Usart</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\User\BSP_CPP\usart\bsp_uart7.hpp">
+      <Filter>头文件\BSP_CPP\Usart</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\User\BSP_CPP\usart\bsp_uart4.hpp">
+      <Filter>头文件\BSP_CPP\Usart</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\User\BSP_CPP\usart\bsp_uart5.hpp">
+      <Filter>头文件\BSP_CPP\Usart</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\User\BSP_CPP\usart\bsp_usart6.hpp">
+      <Filter>头文件\BSP_CPP\Usart</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -312,19 +330,31 @@
       <Filter>源文件\BSP_CPP</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\User\BSP_CPP\usart\bsp_usart.cpp">
-      <Filter>源文件\BSP_CPP</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\User\BSP_CPP\usart\bsp_usart1.cpp">
-      <Filter>源文件\BSP_CPP</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\User\BSP_CPP\usart\bsp_usart2.cpp">
-      <Filter>源文件\BSP_CPP</Filter>
+      <Filter>源文件\BSP_CPP\Usart</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\User\BSP_CPP\usart\bsp_usart_debug.c">
-      <Filter>源文件\BSP_CPP</Filter>
+      <Filter>源文件\BSP_CPP\Usart</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\User\BSP_CPP\usart\bsp_usart1.cpp">
+      <Filter>源文件\BSP_CPP\Usart</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\User\BSP_CPP\usart\bsp_usart2.cpp">
+      <Filter>源文件\BSP_CPP\Usart</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\User\BSP_CPP\usart\bsp_usart3.cpp">
-      <Filter>源文件\BSP_CPP</Filter>
+      <Filter>源文件\BSP_CPP\Usart</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\User\BSP_CPP\usart\bsp_uart7.cpp">
+      <Filter>源文件\BSP_CPP\Usart</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\User\BSP_CPP\usart\bsp_usart6.cpp">
+      <Filter>源文件\BSP_CPP\Usart</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\User\BSP_CPP\usart\bsp_uart4.cpp">
+      <Filter>源文件\BSP_CPP\Usart</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\User\BSP_CPP\usart\bsp_uart5.cpp">
+      <Filter>源文件\BSP_CPP\Usart</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
