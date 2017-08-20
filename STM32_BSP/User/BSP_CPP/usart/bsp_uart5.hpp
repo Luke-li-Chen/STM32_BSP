@@ -5,7 +5,7 @@
 #include "bsp_usart.hpp"
 
 
-class Uart4 : public Usart
+class Uart5 : public Usart
 {
 public:
     //enum TxPin
@@ -16,7 +16,7 @@ public:
     //{
     //    D2
     //};
-    Uart4(uint32_t baud, uint8_t prePriority = 0, uint8_t subPriority = 0,
+    Uart5(uint32_t baud, uint8_t prePriority = 0, uint8_t subPriority = 0,
         bool useInterrupt = true);
     void Init(uint32_t baud, uint8_t prePriority = 0, uint8_t subPriority = 0,
         bool useInterrupt = true);

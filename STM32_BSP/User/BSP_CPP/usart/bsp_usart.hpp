@@ -15,7 +15,13 @@ public:
     void SendnStr(const byte * str, uint32_t strlen);
     void SendStr(const byte * str);
 
-    static bool ReceiveDataByItRXNE(USART_TypeDef * usart, byte & data);
+    //static bool ReceiveDataByItRXNE(USART_TypeDef * usart, byte & data);
+    void ReceiveDataByIRQ(void);
+
+    bool GetItFlag(void);
+    //void SetItFlag(void);
+    void ResetItFlag(void);
+    byte GetReceivedData(void);
 
 protected:
     void NvicConfig(uint8_t prePriority, uint8_t subPriority);  // 设置中断优先级
@@ -39,6 +45,9 @@ protected:
     uint8_t m_rxSource;     // 接收管脚SOURCE
 
     uint8_t m_gpioAF;       // GPIO管脚复用目标
+
+    bool m_ItFlag;         // 中断标志
+    byte m_rxdBuf;          // 
 };
 
 

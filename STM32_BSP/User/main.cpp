@@ -16,13 +16,14 @@
 #include "stm32f4xx.h"
 #include "util.h"
 #include "BSP_CPP/led/bsp_led.hpp"
-#include "BSP_CPP/usart/bsp_usart2.hpp"
+#include "BSP_CPP/usart/bsp_usart1.hpp"
 #include "BSP_CPP/usart/bsp_usart_debug.h"
 
 void Delay(__IO uint32_t nCount);
 
 byte g_UartTmp;
 bool g_bUartFlag = false;
+Usart1 usart1(9600);
 
 /**
   * @brief  Ö÷º¯Êý
@@ -36,32 +37,32 @@ int main(void)
     Delay(0xFFFFFF);
 
     //Usart2 usart2(115200, 0, 0, true, Usart2::D5, Usart2::D6);
-    Usart2 usart2(115200);
+    
 
-    usart2.SendStr("Hello ");
-    usart2.SendnStr("World!", 2);
-    usart2.SendByte('\n');
+    usart1.SendStr("Hello ");
+    usart1.SendnStr("World!", 2);
+    usart1.SendByte('\n');
 
     for (int i = 0; i < 2; i++)
     {
-        usart2.SendByte(0xAA);
+        usart1.SendByte(0xAA);
     }
 
-    printf("Test of usart\n");
+    //printf("%u\n", sizeof(Usart1));
 
-    debug("hhh - %d", 42);
+    //debug("hhh - %d", 42);
 
     while (true)
     {
-        if (!g_bUartFlag)
+        if (!usart1.GetItFlag())
         {
             continue;
         }
 
-        g_bUartFlag = false;
+        usart1.ResetItFlag();
         led.RgbRotate();
 
-        usart2.SendByte(g_UartTmp);
+        usart1.SendByte(usart1.GetReceivedData() + 1);
     }
 }
 

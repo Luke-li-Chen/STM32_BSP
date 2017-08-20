@@ -51,6 +51,9 @@ void Usart::InitBase(uint32_t baud, uint8_t prePriority, uint8_t subPriority, bo
     发送中断使能在SendUart()函数打开
     */
 
+    // 重置中断标志
+    ResetItFlag();
+
     /* 使能串口 */
     USART_Cmd(m_usart, ENABLE);
 }
@@ -97,15 +100,6 @@ void Usart::SendStr(const byte * str)
     }
 }
 
-bool Usart::ReceiveDataByItRXNE(USART_TypeDef * usart, byte & data)
-{
-    if (USART_GetITStatus(usart, USART_IT_RXNE) != RESET)
-    {
-        data = USART_ReceiveData(usart);
-        return true;
-    }
-    return false;
-}
 
 /**
 * @brief    串口中断初始化
@@ -124,9 +118,31 @@ void Usart::NvicConfig(uint8_t prePriority, uint8_t subPriority)
 }
 
 
-//TODO:加入中断接收函数
-/*
+// 中断接收函数
+void Usart::ReceiveDataByIRQ(void)
+{
+    if (USART_GetITStatus(m_usart, USART_IT_RXNE) != RESET)
+    {
+        m_rxdBuf = USART_ReceiveData(m_usart);
+        m_ItFlag = true;
+    }
+    else
+    {
+        m_ItFlag = false;
+    }
+}
 
-*/
+bool Usart::GetItFlag(void)
+{
+    return m_ItFlag;
+}
 
+void Usart::ResetItFlag(void)
+{
+    m_ItFlag = false;
+}
 
+byte Usart::GetReceivedData(void)
+{
+    return m_rxdBuf;
+}
